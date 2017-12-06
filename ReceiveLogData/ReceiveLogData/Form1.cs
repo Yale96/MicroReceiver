@@ -26,6 +26,15 @@ namespace ReceiveLogData
         private void buttonGetFromQueue_Click(object sender, EventArgs e)
         {
             rabbitManager.GetFromQueue();
+            FillListbox();
+        }
+
+        private void FillListbox()
+        {
+            foreach(Message m in rabbitManager.allMessages)
+            {
+                dataFromQueue.Items.Add(m);
+            }
         }
     }
 }

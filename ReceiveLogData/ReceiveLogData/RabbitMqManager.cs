@@ -31,6 +31,7 @@ namespace ReceiveLogData
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {*/
+            Message message = null;
                 channel.QueueDeclare(queue: "task_queue",
                                      durable: false,
                                      exclusive: false,
@@ -41,12 +42,14 @@ namespace ReceiveLogData
                 consumer.Received += (model, ea) =>
                 {
                     var body = ea.Body;
-                    var message = Encoding.UTF8.GetString(body);
+                    message = JsonConvert.DeserializeObject<Message>(Encoding.UTF8.GetString(body));
+                    allMessages.Add(message);
                     Debug.WriteLine(" [x] Received {0}", message);
                 };
                 channel.BasicConsume(queue: "task_queue",
                                      autoAck: true,
                                      consumer: consumer);
+            
             //}
         }
 
