@@ -41,6 +41,7 @@ namespace ReceiveLogData
                 var consumer = new EventingBasicConsumer(channel);
                 consumer.Received += (model, ea) =>
                 {
+                    //channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
                     var body = ea.Body;
                     message = JsonConvert.DeserializeObject<Message>(Encoding.UTF8.GetString(body));
                     allMessages.Add(message);
