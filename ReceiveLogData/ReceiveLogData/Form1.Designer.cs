@@ -32,6 +32,7 @@
         {
             this.dataFromQueue = new System.Windows.Forms.ListBox();
             this.buttonGetFromQueue = new System.Windows.Forms.Button();
+            this.buttonLogData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dataFromQueue
@@ -52,11 +53,22 @@
             this.buttonGetFromQueue.UseVisualStyleBackColor = true;
             this.buttonGetFromQueue.Click += new System.EventHandler(this.buttonGetFromQueue_Click);
             // 
+            // buttonLogData
+            // 
+            this.buttonLogData.Location = new System.Drawing.Point(218, 269);
+            this.buttonLogData.Name = "buttonLogData";
+            this.buttonLogData.Size = new System.Drawing.Size(166, 23);
+            this.buttonLogData.TabIndex = 2;
+            this.buttonLogData.Text = "Write Log Data";
+            this.buttonLogData.UseVisualStyleBackColor = true;
+            this.buttonLogData.Click += new System.EventHandler(this.buttonLogData_Click);
+            // 
             // GetDataFromQueue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(945, 306);
+            this.Controls.Add(this.buttonLogData);
             this.Controls.Add(this.buttonGetFromQueue);
             this.Controls.Add(this.dataFromQueue);
             this.Name = "GetDataFromQueue";
@@ -69,6 +81,7 @@
 
         private System.Windows.Forms.ListBox dataFromQueue;
         private System.Windows.Forms.Button buttonGetFromQueue;
+        private System.Windows.Forms.Button buttonLogData;
     }
 }
 
