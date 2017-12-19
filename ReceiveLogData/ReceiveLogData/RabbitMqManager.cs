@@ -27,10 +27,6 @@ namespace ReceiveLogData
 
         public void GetFromQueue()
         {
-            /*var factory = new ConnectionFactory() { HostName = "localhost" };
-            using (var connection = factory.CreateConnection())
-            using (var channel = connection.CreateModel())
-            {*/
             Message message = null;
                 channel.QueueDeclare(queue: "task_queue",
                                      durable: false,
@@ -50,8 +46,6 @@ namespace ReceiveLogData
                 channel.BasicConsume(queue: "task_queue",
                                      autoAck: true,
                                      consumer: consumer);
-            
-            //}
         }
 
         public List<Message> ReturnAllMessages()
